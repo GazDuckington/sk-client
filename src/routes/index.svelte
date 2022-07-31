@@ -1,13 +1,11 @@
 <script lang="ts">
 	import '../app.css';
-	import { options } from "$lib/stores";
-	let dark: boolean = true;
 </script>
 
-<div class:dark>
+<div>
+	<h1 class="text-red-500 dark:text-blue-500">This is a test!</h1>
 	<h1>Hello world!</h1>
-
-	<input bind:value={$options}>
+	<br />
 </div>
 
 <style lang="postcss">

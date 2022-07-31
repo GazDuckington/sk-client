@@ -1,16 +1,50 @@
 <script lang="ts">
 	import '../app.css';
-	let theme: string = 'dark' || 'light';
-	function changeTheme() {
-		if (theme === 'dark') {
-			theme = 'light';
-		} else {
-			theme = 'dark';
+	import theme from '$lib/stores';
+	$: isDark = $theme === 'dark';
+	import ThemeSwitcher from '$elements/ThemeSwitcher.svelte';
+
+	import { logprior, loglikelihood } from '$lib/stores';
+	import getFetcher from '$lib/fetcher';
+	import { onMount } from 'svelte';
+	import { onDestroy } from 'svelte';
+
+	const baseUrl = 'http://127.0.0.1:5000/api/';
+
+	function isLocalEmpty(key: string) {
+		try {
+			localStorage.setItem(key, key);
+			localStorage.removeItem(key);
+			return true;
+		} catch (err) {
+			return false;
 		}
 	}
+
+	async function fillLocalPrior() {}
+
+	onMount(async() => {
+		// fillLocalPrior;
+		if ($logprior.length <= 0) {
+			$logprior = await getFetcher(baseUrl + 'logs/prior');
+		}
+	});
+
+	$: console.log($logprior.length < 1);
 </script>
 
-<body class={theme}>
-	<button on:click|preventDefault={changeTheme}>{theme}</button>
+<div class:dark={isDark}>
+	{$logprior}
+	<ThemeSwitcher />
 	<slot />
-</body>
+	<br />
+	<hr />
+	<!-- {#await $loglikelihood}
+		load likely...
+	{:then datas}
+		{datas}
+		{#each datas as data}
+			{data}
+		{/each}
+	{/await} -->
+</div>
