@@ -7,21 +7,8 @@
 	import { logprior, loglikelihood } from '$lib/stores';
 	import getFetcher from '$lib/fetcher';
 	import { onMount } from 'svelte';
-	import { onDestroy } from 'svelte';
 
 	const baseUrl = 'http://127.0.0.1:5000/api/';
-
-	function isLocalEmpty(key: string) {
-		try {
-			localStorage.setItem(key, key);
-			localStorage.removeItem(key);
-			return true;
-		} catch (err) {
-			return false;
-		}
-	}
-
-	async function fillLocalPrior() {}
 
 	onMount(async() => {
 		// fillLocalPrior;
