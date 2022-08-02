@@ -8,14 +8,16 @@ theme.subscribe((val) => browser && localStorage.setItem('theme', val));
 
 export default theme;
 
-//
-export const logprior = writable((browser && localStorage.getItem('logprior')) || '');
+// ** logs values
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const newLocal: any = browser && localStorage.getItem("logs");
 
-logprior.subscribe((val) => browser && localStorage.setItem('logprior', val));
+const defaults = JSON.parse(newLocal) || {
+	logprior: 0,
+	loglikelihood: [],
+};
+export const logs = writable(browser && defaults);
 
-//
-export const loglikelihood = writable(browser && localStorage.getItem('loglikelihood'));
-
-loglikelihood.subscribe(
-	(val) => browser && localStorage.setItem(`loglikelihood`, JSON.stringify(val))
+logs.subscribe(
+	(val) => browser && localStorage.setItem(`logs`, JSON.stringify(val))
 );
