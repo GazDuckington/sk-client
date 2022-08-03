@@ -1,9 +1,10 @@
 <script lang="ts">
 	import '../app.css';
 	import ThemeSwitcher from '$elements/ThemeSwitcher.svelte';
+	import DefKata from '$componenst/DegKata.svelte';
 
 	import { logs, theme } from '$lib/stores';
-	import getFetcher from '$lib/fetcher';
+	import getFetcher, { postFetcher } from '$lib/fetcher';
 	import { onMount } from 'svelte';
 
 	const baseUrl = 'http://127.0.0.1:5000/api/';
@@ -22,16 +23,17 @@
 	$: isDark = $theme === 'dark';
 </script>
 
-<div class:dark={isDark}>
+<div class:dark={isDark} class="relative divide-gray-50">
 	{prior}
 	<ThemeSwitcher />
 	<slot />
 	<br />
+	test
+	<DefKata kata="mudik" />
 	<hr />
 	{#if !likelihoods}
 		loading ...
 	{:else}
-		{likelihoods}
+		<input value={likelihoods} />
 	{/if}
-
 </div>
