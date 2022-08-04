@@ -1,16 +1,16 @@
 <script lang="ts">
-	import '../app.css';
+	import DefKata from '$components/DefKata.svelte';
 	import ThemeSwitcher from '$elements/ThemeSwitcher.svelte';
-	import DefKata from '$componenst/DegKata.svelte';
+	import '../app.css';
 
-	import { logs, theme } from '$lib/stores';
 	import getFetcher, { postFetcher } from '$lib/fetcher';
+	import { logs, theme } from '$lib/stores';
 	import { onMount } from 'svelte';
 
-	const baseUrl = 'http://127.0.0.1:5000/api/';
+	const baseUrl = 'https://gzback.herokuapp.com/api/';
 
 	onMount(async () => {
-		if ($logs.logprior == 0) {
+		if ($logs.logprior == 0 || $logs.logprior.length < 1) {
 			$logs.logprior = await getFetcher(baseUrl + 'logs/prior');
 		}
 		if ($logs.loglikelihood.length < 1) {
@@ -23,17 +23,25 @@
 	$: isDark = $theme === 'dark';
 </script>
 
-<div class:dark={isDark} class="relative divide-gray-50">
-	{prior}
-	<ThemeSwitcher />
-	<slot />
-	<br />
-	test
-	<DefKata kata="mudik" />
-	<hr />
-	{#if !likelihoods}
-		loading ...
-	{:else}
-		<input value={likelihoods} />
-	{/if}
+<div class:dark={isDark}>
+	<div class="relative">
+		{prior}
+		<ThemeSwitcher />
+		<slot />
+		<br />
+		test
+		<DefKata kata="mudik" />
+		<hr />
+		{#if !likelihoods}
+			loading ...
+		{:else}
+			<input value={likelihoods} />
+		{/if}
+	</div>
 </div>
+
+<style lang="postcss">
+	* {
+		@apply dark:bg-dark-bg;
+	}
+</style>
