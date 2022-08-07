@@ -1,0 +1,19 @@
+POST https://gzback.herokuapp.com/api/predict/ HTTP/1.1
+Content-Type: application/json
+Authorization: {{$dotenv VITE_API_KEY}} 
+
+{
+    "data": "bagussss sekali desainnya. namun, service yang diberikan sangat buruk."
+}
+
+###
+
+GET https://gzback.herokuapp.com/api/logs/likelihoods HTTP/1.1
+Accept: application/json
+Authorization: {{$dotenv VITE_API_KEY}}
+
+###
+
+GET https://gzback.herokuapp.com/api/logs/prior HTTP/1.1
+Accept: application/json
+Authorization: {{$dotenv VITE_API_KEY}}

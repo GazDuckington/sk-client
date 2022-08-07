@@ -1,9 +1,8 @@
 <script lang="ts">
-	import DefKata from '$components/DefKata.svelte';
-	import ThemeSwitcher from '$elements/ThemeSwitcher.svelte';
 	import '../app.css';
 
-	import getFetcher, { postFetcher } from '$lib/fetcher';
+	import ThemeSwitcher from '$elements/ThemeSwitcher.svelte';
+	import getFetcher from '$lib/fetcher';
 	import { logs, theme } from '$lib/stores';
 	import { onMount } from 'svelte';
 
@@ -17,31 +16,19 @@
 			$logs.loglikelihood = await getFetcher(baseUrl + 'logs/likelihoods');
 		}
 	});
-
-	$: prior = $logs.logprior;
-	$: likelihoods = JSON.stringify($logs.loglikelihood);
-	$: isDark = $theme === 'dark';
 </script>
 
-<div class:dark={isDark}>
-	<div class="relative">
-		{prior}
-		<ThemeSwitcher />
+<hr />
+<ThemeSwitcher />
+<div class="{$theme} grid place-content-center">
+	<div>
 		<slot />
-		<br />
-		test
-		<DefKata kata="mudik" />
-		<hr />
-		{#if !likelihoods}
-			loading ...
-		{:else}
-			<input value={likelihoods} />
-		{/if}
 	</div>
 </div>
 
 <style lang="postcss">
 	* {
-		@apply dark:bg-dark-bg;
+		@apply dark:bg-dark-bg bg-light-bg;
+		@apply dark:text-dark-fg text-light-fg;
 	}
 </style>

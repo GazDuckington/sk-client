@@ -4,7 +4,7 @@
 	$: isDark = $theme === 'dark';
 
 	function changeTheme() {
-        isDark ? theme.set('light') : theme.set('dark');
+		isDark ? theme.set('light') : theme.set('dark');
 	}
 </script>
 
