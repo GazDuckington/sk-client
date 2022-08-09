@@ -18,17 +18,28 @@
 	});
 </script>
 
-<hr />
-<ThemeSwitcher />
-<div class="{$theme} grid place-content-center">
-	<div>
-		<slot />
+<div class={$theme}>
+	<div class="gap-0 flex flex-col">
+		<ThemeSwitcher />
 	</div>
+	<slot />
 </div>
 
-<style lang="postcss">
+<style lang="postcss" global>
 	* {
-		@apply dark:bg-dark-bg bg-light-bg;
-		@apply dark:text-dark-fg text-light-fg;
+		transition: background-color 0.3s;
+		transition: color 0.3s;
+	}
+	:global(body) {
+		@apply bg-gray-50 text-gray-900;
+	}
+	:global(body.dark) {
+		@apply bg-gray-900 text-gray-50;
+	}
+	.biru {
+		@apply dark:text-blue-500 text-blue-400;
+	}
+	.merah {
+		@apply dark:text-rose-500 text-rose-400;
 	}
 </style>
