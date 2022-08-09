@@ -1,21 +1,19 @@
 <script lang="ts">
 	import TabelPred from '$components/TabelPred.svelte';
+	import InputData from '$elements/InputData.svelte';
 	import { postFetcher } from '$lib/fetcher';
-	import theme from '$lib/stores';
 	import '../app.css';
 
 	const baseUrl = 'https://gzback.herokuapp.com/api/';
-	let testPost = postFetcher(baseUrl + 'predict/', 'produk jelek tapi murah. pegawai ramah.');
+	let testPost = postFetcher(baseUrl + 'predict/', 'produk jelek jelek tapi murah. pegawai ramah.');
 	$: console.log(testPost);
 </script>
 
 <svelte:head>
 	<title>home</title>
 </svelte:head>
-<div class={$theme}>
-
+<InputData />
 <TabelPred promise={testPost} />
-</div>
 
 <style lang="postcss">
 </style>

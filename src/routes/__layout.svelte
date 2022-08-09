@@ -1,9 +1,9 @@
 <script lang="ts">
 	import '../app.css';
 
-	import ThemeSwitcher from '$elements/ThemeSwitcher.svelte';
+	import Navbar from '$elements/Navbar.svelte';
 	import getFetcher from '$lib/fetcher';
-	import { logs, theme } from '$lib/stores';
+	import { logs } from '$lib/stores';
 	import { onMount } from 'svelte';
 
 	const baseUrl = 'https://gzback.herokuapp.com/api/';
@@ -18,15 +18,16 @@
 	});
 </script>
 
-<div class={$theme}>
-	<div class="gap-0 flex flex-col">
-		<ThemeSwitcher />
+<Navbar />
+
+<div class="relative flex min-h-screen flex-col items-center overflow-hidden py-5">
+	<div class="max-w-xl text-center">
+		<slot />
 	</div>
-	<slot />
 </div>
 
 <style lang="postcss" global>
-	* {
+	:global(*) {
 		transition: background-color 0.3s;
 		transition: color 0.3s;
 	}
@@ -35,11 +36,5 @@
 	}
 	:global(body.dark) {
 		@apply bg-gray-900 text-gray-50;
-	}
-	.biru {
-		@apply dark:text-blue-500 text-blue-400;
-	}
-	.merah {
-		@apply dark:text-rose-500 text-rose-400;
 	}
 </style>

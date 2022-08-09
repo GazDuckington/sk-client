@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { theme } from '$lib/stores';
+	import DefKata from './DefKata.svelte';
+
 	export let detail: Array<any>;
 </script>
 
-<div class="flex gap-1 {$theme}">
+<div class="flex gap-1">
 	{#each detail as kata}
-		<p class={kata.label > 0 ? 'biru' : 'merah'}>
-			{kata.kata}
-		</p>
+		<!-- {kata.kata} -->
+		<DefKata kata={kata.kata} pred={kata.skor} freq={kata.freq} />
 	{/each}
 </div>
 

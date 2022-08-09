@@ -16,6 +16,10 @@ const defaults = JSON.parse(newLocal) || {
 	logprior: 0,
 	loglikelihood: []
 };
-export const logs = writable(browser && defaults);
+const logs = writable(browser && defaults);
 
 logs.subscribe((val) => browser && localStorage.setItem(`logs`, JSON.stringify(val)));
+
+const hasilPred = writable();
+hasilPred.subscribe((val) => val);
+export { logs };

@@ -8,8 +8,10 @@
 		<td>
 			{det.kalimat}
 		</td>
-		<td class={det.label > 0 ? 'biru' : 'merah'}>
-			{det.skor}
+		<td class="text-center">
+			<span class={det.label > 0 ? 'biru' : 'merah'}>
+				{det.skor}
+			</span>
 		</td>
 		<td>
 			<SkorPerKata detail={det.perkata} />
@@ -17,5 +19,18 @@
 	</tr>
 {/each}
 
-<style lang="postcss">
+<style lang="postcss" global>
+	.biru,
+	.merah {
+		@apply px-2 py-1 font-semibold leading-tight rounded-md;
+	}
+	.biru {
+		@apply text-blue-600 bg-blue-200;
+		@apply text-blue-900 dark:bg-blue-400;
+	}
+
+	.merah {
+		@apply text-rose-600 bg-rose-200;
+		@apply text-rose-900 dark:bg-rose-400;
+	}
 </style>

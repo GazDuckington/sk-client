@@ -4,27 +4,64 @@
 	export let freq: number;
 	let showDef = false;
 	$: isPos = pred > 0;
+
+	import { logs } from '$lib/stores';
+	let likely = $logs.loglikelihood;
+
+	let detailKata: any[] = [];
+	for (let i = 0; i < likely.length; i++) {
+		if (likely[i].kata == kata) {
+			detailKata.push(likely[i]);
+		}
+	}
 </script>
 
 {#if showDef}
-	<div on:click={() => (showDef = !showDef)} class="bg-grey-50 absolute">
-		skor: {pred}
-		freq: {freq}
+	<div
+		on:click|stopPropagation={() => (showDef = !showDef)}
+		class="detail {isPos ? 'biru' : 'merah'}"
+	>
+		<div>
+			skor: {pred}
+		</div>
+		<div>
+			freq: {freq}
+		</div>
+		<div>
+			{#if detailKata.length > 0}
+				{#each detailKata as item}
+					likelihood: {item['likelihood'].toFixed(4)}
+				{/each}
+			{:else}
+				likelihood: N/A
+			{/if}
+		</div>
 	</div>
 {/if}
-<p on:click={() => (showDef = !showDef)} class={isPos ? 'biru' : 'merah'}>
+<span on:click|stopPropagation={() => (showDef = !showDef)} class="{isPos ? 'biru' : 'merah'} kata">
 	{kata}
-</p>
+</span>
 
-<style lang="postcss">
-	@import '../app.css';
-	p {
-		@apply rounded-md p-1 self-center shadow-md border-2 text-white;
+<style lang="postcss" global>
+	span {
+		@apply px-2 py-1 font-semibold leading-tight;
 	}
-	.biru {
-		@apply bg-blue-700 border-blue-600;
+	span.kata.merah {
+		@apply hover:text-rose-100 hover:bg-rose-600 dark:hover:text-rose-500;
 	}
-	.merah {
-		@apply bg-red-500 border-red-600;
+	span.kata.biru {
+		@apply hover:text-blue-100 hover:bg-blue-600 dark:hover:text-blue-500;
+	}
+	.detail {
+		@apply flex flex-col absolute rounded-lg shadow-md font-light border;
+	}
+	.detail.biru {
+		@apply dark:text-blue-600 dark:bg-blue-200 border-blue-700;
+		@apply text-blue-800 bg-blue-400 dark:border-blue-800;
+	}
+
+	.detail.merah {
+		@apply dark:text-rose-600 dark:bg-rose-200 border-red-700;
+		@apply text-rose-800 bg-rose-400 dark:border-red-800;
 	}
 </style>
