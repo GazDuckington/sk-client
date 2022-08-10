@@ -10,10 +10,10 @@ const config = {
 	}),
 
 	kit: {
-		adapter: adapter({
-			pages: 'docs',
-			assets: 'docs'
-		}),
+		adapter: adapter(),
+		prerender: {
+			default: true
+		},
 		alias: {
 			$components: 'src/components',
 			$elements: 'src/elements',
