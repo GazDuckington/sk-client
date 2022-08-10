@@ -19,7 +19,7 @@
 <style lang="postcss" global>
 	a.navi {
 		@apply font-semibold;
-		@apply dark:hover:text-blue-600 hover:text-blue-500;
+		@apply dark:hover:text-cyan-600 hover:text-cyan-500;
 	}
 	a.active {
 		@apply text-[#2e3440] dark:text-[#d8dee9];

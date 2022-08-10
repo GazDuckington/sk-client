@@ -21,7 +21,7 @@
 <Navbar />
 
 <div class="relative flex min-h-screen flex-col items-center overflow-hidden py-5">
-	<div class="max-w-2xl text-center">
+	<div class="max-w-xl text-center">
 		<slot />
 	</div>
 </div>

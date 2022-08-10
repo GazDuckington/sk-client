@@ -20,6 +20,6 @@
 <style lang="postcss" global>
 	svg {
 		@apply h-7 w-7 rounded-md p-1;
-		@apply dark:hover:text-blue-600 hover:text-blue-400;
+		@apply dark:hover:text-cyan-600 hover:text-cyan-500;
 	}
 </style>

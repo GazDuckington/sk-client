@@ -28,7 +28,7 @@
 <svelte:head>
 	<title>home</title>
 </svelte:head>
-
+<p class="lead prose text-left">Input kalimat:</p>
 <InputData on:submit={handleSubmit} />
 {#if !promise}
 	<div class="belum" />
@@ -36,6 +36,7 @@
 	{#await promise}
 		<Spinner />
 	{:then result}
+		<p class="lead prose text-left mb-1">Hasil analisis:</p>
 		<TabelPred {promise} />
 		<RawHasil {result} />
 	{/await}

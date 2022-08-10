@@ -48,11 +48,11 @@
 	}
 	.warning {
 		@apply mb-2 p-2 rounded-md border-2 shadow-lg font-bold uppercase;
-		@apply border-amber-800 bg-amber-200 text-amber-800;
+		@apply border-orange-500 bg-orange-100 text-orange-500;
 	}
 	button.submit {
 		@apply border p-2 shadow-lg rounded-xl m-2 font-semibold;
-		@apply text-green-800 border-green-800 bg-green-500;
-		@apply hover:text-green-500 hover:border-green-500 hover:bg-green-200;
+		@apply text-cyan-600 border-cyan-600 bg-cyan-300;
+		@apply hover:text-cyan-500 hover:border-cyan-500 hover:bg-cyan-200;
 	}
 </style>
