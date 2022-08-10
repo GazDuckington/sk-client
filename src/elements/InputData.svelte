@@ -51,7 +51,7 @@
 		@apply border-amber-800 bg-amber-200 text-amber-800;
 	}
 	button.submit {
-		@apply border p-2 shadow-lg rounded-lg m-2 font-semibold;
+		@apply border p-2 shadow-lg rounded-xl m-2 font-semibold;
 		@apply text-green-800 border-green-800 bg-green-500;
 		@apply hover:text-green-500 hover:border-green-500 hover:bg-green-200;
 	}

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 
-	import Navbar from '$elements/Navbar.svelte';
+	import Navbar from '$components/Navbar.svelte';
 	import getFetcher from '$lib/fetcher';
 	import { logs } from '$lib/stores';
 	import { onMount } from 'svelte';
@@ -32,9 +32,11 @@
 		transition: color 0.3s;
 	}
 	:global(body) {
-		@apply bg-gray-100 text-gray-900;
+		@apply bg-gradient-to-tr from-[#d8dee9] via-[#e5e9f0] to-[#eceff4];
+		@apply text-gray-900;
 	}
 	:global(body.dark) {
-		@apply bg-gray-900 text-gray-100;
+		@apply bg-gradient-to-tr from-[#2e3440] via-[#434c5e] to-[#4c566a];
+		@apply text-gray-100;
 	}
 </style>

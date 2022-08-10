@@ -19,9 +19,7 @@
 
 <style lang="postcss" global>
 	svg {
-		@apply h-7 w-7;
-		@apply text-gray-500 dark:text-gray-600;
-		@apply rounded-md p-1 dark:bg-gray-200 bg-gray-300;
-		@apply hover:bg-gray-200 hover:text-gray-900;
+		@apply h-7 w-7 rounded-md p-1;
+		@apply dark:hover:text-blue-600 hover:text-blue-400;
 	}
 </style>
