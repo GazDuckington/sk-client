@@ -7,7 +7,7 @@
 {#if overlay}
 	<div class="absolute" on:click|preventDefault={() => (overlay = !overlay)}>
 		<div
-			class="inside 
+			class="inside relative 
             overflow-scroll rounded-lg shadow-lg 
             p-10 w-[40em] h-[31em] gap-2 
             bg-gray-50 dark:bg-gray-600"

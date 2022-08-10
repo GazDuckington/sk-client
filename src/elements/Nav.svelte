@@ -1,27 +1,26 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	// todo: add about pages for cv
-	const nav = [{ title: 'Home', path: '/' }];
+	const nav = [
+		{ title: 'Home', path: '/' },
+		{ title: 'About', path: '/about' }
+	];
 </script>
 
-<nav>
-	<ul>
-		{#each nav as item}
-			<li>
-				<a href={item.path} class="navi" class:active={$page.url.pathname === '/'}>
-					{item.title}
-				</a>
-			</li>
-		{/each}
-	</ul>
+<nav class="flex flex-row gap-2">
+	{#each nav as item}
+		<a href={item.path} class="navi" class:active={$page.url.pathname === item.path}>
+			{item.title}
+		</a>
+	{/each}
 </nav>
 
 <style lang="postcss" global>
 	a.navi {
-		@apply font-semibold;
+		@apply font-semibold flex flex-col;
 		@apply dark:hover:text-cyan-600 hover:text-cyan-500;
 	}
 	a.active {
-		@apply text-[#2e3440] dark:text-[#d8dee9];
+		@apply text-cyan-500 border-b-2 border-cyan-500;
 	}
 </style>

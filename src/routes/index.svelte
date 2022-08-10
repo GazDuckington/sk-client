@@ -14,7 +14,6 @@
 	let result: Promise<any>;
 
 	function handleSubmit(e: { detail: any }) {
-		//! delete address:port before build
 		const url = baseUrl + 'predict/';
 		let data = e.detail;
 		if (data) {
@@ -22,7 +21,6 @@
 			load = !load;
 		}
 	}
-	// $: console.log(testPost);
 </script>
 
 <svelte:head>
@@ -42,5 +40,8 @@
 	{/await}
 {/if}
 
-<style lang="postcss">
+<style lang="postcss" global>
+	p {
+		@apply dark:text-gray-100;
+	}
 </style>

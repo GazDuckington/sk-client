@@ -9,6 +9,8 @@
 	const baseUrl = 'https://gzback.herokuapp.com/api/';
 
 	onMount(async () => {
+		window.document.body.classList.add('dark');
+
 		if ($logs.logprior == 0 || $logs.logprior.length < 1) {
 			$logs.logprior = await getFetcher(baseUrl + 'logs/prior');
 		}
@@ -20,20 +22,19 @@
 
 <Navbar />
 
-<div class="relative flex h-screen flex-col items-center overflow-hidden py-5">
-	<div class="max-w-xl text-center">
+<div class="relative flex h-screen w-screen flex-col items-center overflow-scroll py-5">
+	<div class="text-center">
 		<slot />
 	</div>
 </div>
 
-<div class="footer text-center pb-5">
+<div class="footer text-center pb-5 shadow-lg">
 	<p>&copy;2022 by dianghazy@gmail.com</p>
 </div>
 
 <style lang="postcss" global>
 	.footer {
-		@apply bg-gray-900 dark:bg-gray-100;
-		@apply text-gray-100 dark:text-gray-900;
+		@apply bg-opacity-5 backdrop-blur-2xl border-t;
 	}
 	:global(*) {
 		transition: background-color 0.3s;
