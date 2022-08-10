@@ -20,13 +20,21 @@
 
 <Navbar />
 
-<div class="relative flex min-h-screen flex-col items-center overflow-hidden py-5">
+<div class="relative flex h-screen flex-col items-center overflow-hidden py-5">
 	<div class="max-w-xl text-center">
 		<slot />
 	</div>
 </div>
 
+<div class="footer text-center pb-5">
+	<p>&copy;2022 by dianghazy@gmail.com</p>
+</div>
+
 <style lang="postcss" global>
+	.footer {
+		@apply bg-gray-900 dark:bg-gray-100;
+		@apply text-gray-100 dark:text-gray-900;
+	}
 	:global(*) {
 		transition: background-color 0.3s;
 		transition: color 0.3s;
