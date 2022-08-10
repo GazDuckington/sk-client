@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/sk-client/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+	<link rel="modulepreload" href="/sk-client/_app/immutable/start-5554d187.js">
+	<link rel="modulepreload" href="/sk-client/_app/immutable/chunks/index-763cb326.js">
+	<link rel="modulepreload" href="/sk-client/_app/immutable/chunks/index-211dbb97.js">
+	</head>
+	<body>
+		<div>
+		<script type="module" data-sveltekit-hydrate="45h">
+		import { set_public_env, start } from "/sk-client/_app/immutable/start-5554d187.js";
+
+		set_public_env({});
+
+		start({
+			target: document.querySelector('[data-sveltekit-hydrate="45h"]').parentNode,
+			paths: {"base":"/sk-client","assets":"/sk-client"},
+			session: {},
+			route: true,
+			spa: true,
+			trailing_slash: "never",
+			hydrate: null
+		});
+	</script></div>
+	</body>
+</html>
