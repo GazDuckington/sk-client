@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SkorPerKata from '$elements/SkorPerKata.svelte';
+	import SkorPerKata from '$components/SkorPerKata.svelte';
 	export let detail: Array<any>;
 </script>
 

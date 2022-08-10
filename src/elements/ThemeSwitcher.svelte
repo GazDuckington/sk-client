@@ -1,6 +1,6 @@
 <script lang="ts">
+	import IconTheme from '$elements/IconTheme.svelte';
 	import theme from '$lib/stores';
-	import IconMoon from '$elements/IconMoon.svelte';
 
 	$: isDark = $theme === 'dark';
 
@@ -11,5 +11,5 @@
 </script>
 
 <button on:click|preventDefault={changeTheme}>
-	<IconMoon />
+	<IconTheme />
 </button>

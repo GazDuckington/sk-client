@@ -1,6 +1,5 @@
 <script lang="ts">
 	import SkorPerKalimat from '$components/SkorPerKalimat.svelte';
-	import TotalSkor from '$elements/TotalSkor.svelte';
 	import '../app.css';
 
 	export let promise: Promise<any>;
@@ -10,7 +9,6 @@
 	loading ...
 {:then hasilPost}
 	{#each hasilPost as hp}
-		<!-- <TotalSkor hasil={hp.total} /> -->
 		<div class="overflow-x-auto mb-8 w-full overflow-hidden rounded-md shadow-lg">
 			<table class="w-full">
 				<thead>

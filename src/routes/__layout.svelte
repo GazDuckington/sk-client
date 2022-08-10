@@ -21,7 +21,7 @@
 <Navbar />
 
 <div class="relative flex min-h-screen flex-col items-center overflow-hidden py-5">
-	<div class="max-w-xl text-center">
+	<div class="max-w-2xl text-center">
 		<slot />
 	</div>
 </div>
@@ -32,9 +32,9 @@
 		transition: color 0.3s;
 	}
 	:global(body) {
-		@apply bg-gray-50 text-gray-900;
+		@apply bg-gray-100 text-gray-900;
 	}
 	:global(body.dark) {
-		@apply bg-gray-900 text-gray-50;
+		@apply bg-gray-900 text-gray-100;
 	}
 </style>
