@@ -10,11 +10,7 @@
 	}
 </script>
 
-<p class="lead prose text-left mb-1">Bentuk mentah:</p>
-
 <div class="flex flex-col gap-1">
-	<textarea bind:value={resValue} />
-
 	<div class="text-cyan-800 dark:text-cyan-200 flex gap-1">
 		<button
 			on:click|preventDefault={copyHasil}
@@ -26,10 +22,8 @@
 		</button>
 		Klik <i>icon</i> untuk meng-<i>copy</i> teks.
 	</div>
+	<textarea bind:value={resValue} />
 </div>
 
 <style lang="postcss">
-	textarea {
-		@apply min-h-[20rem] min-w-[30em];
-	}
 </style>

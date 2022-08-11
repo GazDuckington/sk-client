@@ -5,14 +5,14 @@
 	export let promise: Promise<any>;
 </script>
 
-{#await promise}
-	loading ...
-{:then hasilPost}
-	{#each hasilPost as hp}
-		<div class="overflow-x-auto mb-8 w-full overflow-hidden rounded-md shadow-lg">
+<div class="overflow-x-auto w-full rounded-md shadow-lg">
+	{#await promise}
+		loading ...
+	{:then hasilPost}
+		{#each hasilPost as hp}
 			<table class="w-full">
 				<thead>
-					<tr class="text-md font-semibold tracking-wide text-center uppercase">
+					<tr>
 						<th>kalimat</th>
 						<th>skor</th>
 						<th>detail</th>
@@ -22,23 +22,23 @@
 					<SkorPerKalimat detail={hp.detail} />
 				</tbody>
 			</table>
-		</div>
-	{/each}
-{:catch error}
-	{error}
-{/await}
+		{/each}
+	{:catch error}
+		{error}
+	{/await}
+</div>
 
 <style lang="postcss" global>
 	th {
-		@apply text-gray-100 bg-gray-500 dark:text-gray-500 dark:bg-gray-100;
+		@apply bg-slate-100 dark:bg-slate-900;
 	}
 	td {
 		@apply border-l border-t;
-		@apply dark:text-gray-100 dark:bg-gray-500 text-gray-500 bg-gray-50;
+		@apply dark:text-slate-100 dark:bg-slate-500 text-slate-500 bg-slate-50;
 	}
 	th,
 	td {
 		@apply px-4 py-3;
-		@apply border-gray-200 dark:border-gray-100;
+		@apply border-slate-200 dark:border-slate-100;
 	}
 </style>
