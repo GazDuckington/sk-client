@@ -26,25 +26,27 @@
 </svelte:head>
 
 <!-- !! start of content -->
-{#if !load}
-	<InputData on:submit={handleSubmit} />
-{:else if !promise}
-	<div />
-{:else}
-	<div>
-		{#await promise}
-			<Spinner />
-		{:then result}
-			{#if raw}
-				<button on:click={() => (raw = !raw)}>table</button>
-				<RawHasil {result} />
-			{:else}
-				<button on:click={() => (raw = !raw)}>json</button>
-				<TabelPred {promise} />
-			{/if}
-		{/await}
-	</div>
-{/if}
+<div class="lg:min-w-[60vw] min-w-[90vw] p-5">
+	{#if !load}
+		<InputData on:submit={handleSubmit} />
+	{:else if !promise}
+		<div />
+	{:else}
+		<div>
+			{#await promise}
+				<Spinner />
+			{:then result}
+				{#if raw}
+					<button on:click={() => (raw = !raw)}>table</button>
+					<RawHasil {result} />
+				{:else}
+					<button on:click={() => (raw = !raw)}>json</button>
+					<TabelPred {promise} />
+				{/if}
+			{/await}
+		</div>
+	{/if}
+</div>
 
 <style lang="postcss">
 	div button {

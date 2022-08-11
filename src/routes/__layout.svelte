@@ -21,13 +21,15 @@
 	});
 </script>
 
+<svelte:head>
+	<link rel="icon" type="image/svg" href="/ducky.png" />
+</svelte:head>
+
 <div class="w-screen">
 	<Navbar />
 
 	<div class="flex mb-5 mt-5 justify-center w-screen h-screen">
-		<div class="lg:min-w-[50vw] min-w-[90vw] p-5">
-			<slot />
-		</div>
+		<slot />
 	</div>
 
 	<Footer />
