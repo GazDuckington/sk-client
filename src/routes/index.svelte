@@ -47,8 +47,11 @@
 {/if}
 
 <style lang="postcss">
-	p {
-		@apply text-left;
-		@apply dark:text-slate-100;
+	div button {
+		@apply rounded-lg p-1 border-2 font-semibold mb-2;
+		@apply bg-cyan-200 border-cyan-500 text-cyan-500;
+		@apply dark:bg-cyan-300 dark:border-cyan-600 dark:text-cyan-600;
+		@apply hover:bg-cyan-100 hover:border-cyan-400 hover:text-cyan-400;
+		@apply dark:hover:bg-cyan-200 dark:hover:border-cyan-500 dark:hover:text-cyan-500;
 	}
 </style>

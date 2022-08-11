@@ -11,17 +11,20 @@
 </script>
 
 <div class="flex flex-col gap-1">
-	<textarea bind:value={resValue} />
+	<textarea bind:value={resValue} rows="10" />
 	<div>
-		<button
-			on:click|preventDefault={copyHasil}
-			class="rounded-full border 
-		border-cyan-600 text-cyan-600 hover:text-cyan-500 hover:border-cyan-500"
-		>
+		<button on:click|preventDefault={copyHasil}>
 			<IconClip />
 		</button>
 	</div>
 </div>
 
 <style lang="postcss">
+	div button {
+		@apply rounded-full p-1 border-2 font-semibold mb-2;
+		@apply bg-green-200 border-green-500 text-green-500;
+		@apply dark:bg-green-300 dark:border-green-600 dark:text-green-600;
+		@apply hover:bg-green-100 hover:border-green-400 hover:text-green-400;
+		@apply dark:hover:bg-green-200 dark:hover:border-green-500 dark:hover:text-green-500;
+	}
 </style>
