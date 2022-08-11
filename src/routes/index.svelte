@@ -29,14 +29,16 @@
 <p class="lead prose text-left">Input kalimat:</p>
 <InputData on:submit={handleSubmit} />
 {#if !promise}
-	<div class="belum" />
+	<div />
 {:else}
 	{#await promise}
 		<Spinner />
 	{:then result}
-		<p class="lead prose text-left mb-1">Hasil analisis:</p>
-		<TabelPred {promise} />
-		<RawHasil {result} />
+		<div class="">
+			<p class="lead prose text-left mb-1">Hasil analisis:</p>
+			<TabelPred {promise} />
+			<RawHasil {result} />
+		</div>
 	{/await}
 {/if}
 
