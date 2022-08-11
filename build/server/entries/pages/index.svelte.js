@@ -28,7 +28,7 @@ const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `${$$result.head += `${$$result.title = `<title>home</title>`, ""}`, ""}
 <p class="${"lead prose text-left"}">Input kalimat:</p>
 ${validate_component(InputData, "InputData").$$render($$result, {}, {}, {})}
-${`<div class="${"belum"}"></div>`}`;
+${`<div></div>`}`;
 });
 export {
   Routes as default
