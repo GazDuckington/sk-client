@@ -1,1 +1,0 @@
-import{w as t}from"./index-8bebbe38.js";const o=t(localStorage.getItem("theme")||"dark");o.subscribe(e=>localStorage.setItem("theme",e));const s=localStorage.getItem("logs"),l=JSON.parse(s)||{logprior:0,loglikelihood:[]},a=t(l);a.subscribe(e=>localStorage.setItem("logs",JSON.stringify(e)));const r=t();r.subscribe(e=>e);export{a as l,o as t};

@@ -1,5 +1,6 @@
 import { g as getContext, c as create_ssr_component, a as subscribe, e as each, b as add_attribute, d as escape, v as validate_component } from "../../_app/immutable/chunks/index-5eb23c43.js";
-/* empty css                                        */import { t as theme, l as logs } from "../../_app/immutable/chunks/stores-c1116e89.js";
+import { t as theme, l as logs } from "../../_app/immutable/chunks/stores-c1116e89.js";
+const app = "";
 const getStores = () => {
   const stores = getContext("__svelte__");
   return {
@@ -38,8 +39,8 @@ const Nav = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_page = subscribe(page, (value) => $page = value);
   const nav = [
     { title: "Home", path: "/" },
-    { title: "About", path: "/about" },
-    { title: "Sentimen", path: "/sentiment" }
+    { title: "Sentimen", path: "/sentiment" },
+    { title: "About", path: "/about" }
   ];
   $$result.css.add(css$3);
   dark = $theme === "dark";
@@ -73,7 +74,7 @@ const ThemeSwitcher = create_ssr_component(($$result, $$props, $$bindings, slots
 });
 const Navbar_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: ".nav{position:-webkit-sticky;position:sticky;top:0px;z-index:50;border-bottom-width:1px;--tw-backdrop-blur:blur(40px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)\n}",
+  code: ".nav{position:-webkit-sticky;position:sticky;top:0px;z-index:50;border-bottom-width:1px;--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);--tw-backdrop-blur:blur(40px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)\n}",
   map: null
 };
 const Navbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -83,27 +84,22 @@ const Navbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 </div>`;
 });
 const Footer = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<div class="${"fixed w-screen text-center h-12 backdrop-blur-2xl bottom-0 z-50 border-t"}">\xA9 2021 by dianghazy@gmail.com
+  return `<div class="${"fixed w-screen text-center h-12 backdrop-blur-2xl bottom-0 z-50 border-t shadow-md"}">\xA9 2021 by dianghazy@gmail.com
 </div>`;
 });
 const __layout_svelte_svelte_type_style_lang = "";
 const css = {
-  code: "body.dark{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity));--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity));transition:color 0.5s;transition:background-color 0.5s\n}",
+  code: "body{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity));--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity))}body.dark{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity));--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity))}*{transition:background-color 0.3s;transition:color 0.3s}",
   map: null
 };
 const _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let dark;
-  let $theme, $$unsubscribe_theme;
   let $$unsubscribe_logs;
-  $$unsubscribe_theme = subscribe(theme, (value) => $theme = value);
   $$unsubscribe_logs = subscribe(logs, (value) => value);
   $$result.css.add(css);
-  dark = $theme === "dark";
-  $$unsubscribe_theme();
   $$unsubscribe_logs();
-  return `<div class="${["w-screen", dark ? "dark" : ""].join(" ").trim()}">${validate_component(Navbar, "Navbar").$$render($$result, {}, {}, {})}
+  return `<div class="${"w-screen"}">${validate_component(Navbar, "Navbar").$$render($$result, {}, {}, {})}
 
-	<div class="${"flex mt-5 justify-center w-screen h-screen"}"><div class="${"lg:min-w-[50vw] min-w-[90vw] p-5"}">${slots.default ? slots.default({}) : ``}</div></div>
+	<div class="${"flex mb-5 mt-5 justify-center w-screen h-screen"}"><div class="${"lg:min-w-[50vw] min-w-[90vw] p-5"}">${slots.default ? slots.default({}) : ``}</div></div>
 
 	${validate_component(Footer, "Footer").$$render($$result, {}, {}, {})}
 </div>`;
