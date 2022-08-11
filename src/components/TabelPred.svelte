@@ -1,6 +1,5 @@
 <script lang="ts">
 	import SkorPerKalimat from '$components/SkorPerKalimat.svelte';
-	import '../app.css';
 
 	export let promise: Promise<any>;
 </script>
@@ -30,7 +29,8 @@
 
 <style lang="postcss" global>
 	th {
-		@apply bg-slate-100 dark:bg-slate-900;
+		/* @apply dark:bg-slate-900; */
+		@apply bg-slate-900 text-slate-300;
 	}
 	td {
 		@apply border-l border-t;

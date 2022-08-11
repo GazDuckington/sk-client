@@ -4,8 +4,8 @@
 	// todo: add about pages for cv
 	const nav = [
 		{ title: 'Home', path: '/' },
-		{ title: 'About', path: '/about' },
-		{ title: 'Sentimen', path: '/sentiment' }
+		{ title: 'Sentimen', path: '/sentiment' },
+		{ title: 'About', path: '/about' }
 	];
 	$: dark = $theme === 'dark';
 </script>

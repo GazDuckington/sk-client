@@ -44,7 +44,7 @@
 		@apply resize-none shadow-lg;
 		@apply border rounded-md p-2;
 		@apply border-slate-600 dark:border-slate-50;
-		@apply bg-slate-50 text-slate-500;
+		@apply bg-slate-100 text-slate-500;
 		@apply dark:bg-slate-500 dark:text-slate-100;
 	}
 	.warning {
