@@ -3,12 +3,13 @@ export const manifest = {
 	assets: new Set([".nojekyll","favicon.png"]),
 	mimeTypes: {".png":"image/png"},
 	_: {
-		entry: {"file":"_app/immutable/start-9cabde9e.js","imports":["_app/immutable/start-9cabde9e.js","_app/immutable/chunks/index-763cb326.js","_app/immutable/chunks/index-211dbb97.js"],"stylesheets":[]},
+		entry: {"file":"_app/immutable/start-9e1d05b7.js","imports":["_app/immutable/start-9e1d05b7.js","_app/immutable/chunks/index-56bad4f8.js","_app/immutable/chunks/index-8bebbe38.js"],"stylesheets":[]},
 		nodes: [
 			() => import('./nodes/0.js'),
 			() => import('./nodes/1.js'),
 			() => import('./nodes/3.js'),
-			() => import('./nodes/2.js')
+			() => import('./nodes/2.js'),
+			() => import('./nodes/4.js')
 		],
 		routes: [
 			{
@@ -31,6 +32,17 @@ export const manifest = {
 				path: "/about",
 				shadow: null,
 				a: [0,3],
+				b: [1]
+			},
+			{
+				type: 'page',
+				id: "sentiment",
+				pattern: /^\/sentiment\/?$/,
+				names: [],
+				types: [],
+				path: "/sentiment",
+				shadow: null,
+				a: [0,4],
 				b: [1]
 			}
 		],

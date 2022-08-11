@@ -27,17 +27,26 @@ const page = {
 };
 const Nav_svelte_svelte_type_style_lang = "";
 const css$3 = {
-  code: "a.navi{display:flex;flex-direction:column;font-weight:600\n}a.navi:hover{--tw-text-opacity:1;color:rgb(6 182 212 / var(--tw-text-opacity))\n}.dark a.navi:hover{--tw-text-opacity:1;color:rgb(8 145 178 / var(--tw-text-opacity))\n}a.active{border-bottom-width:2px;--tw-border-opacity:1;border-color:rgb(6 182 212 / var(--tw-border-opacity));--tw-text-opacity:1;color:rgb(6 182 212 / var(--tw-text-opacity))\n}",
+  code: "a.navi.svelte-13yuztl.svelte-13yuztl{display:flex;flex-direction:column;font-weight:600\n}a.navi.svelte-13yuztl.svelte-13yuztl:hover{--tw-text-opacity:1;color:rgb(6 182 212 / var(--tw-text-opacity))\n}.dark.svelte-13yuztl a.navi.svelte-13yuztl:hover{--tw-text-opacity:1;color:rgb(8 145 178 / var(--tw-text-opacity))\n}a.active.svelte-13yuztl.svelte-13yuztl{border-bottom-width:2px;--tw-border-opacity:1;border-color:rgb(6 182 212 / var(--tw-border-opacity));--tw-text-opacity:1;color:rgb(6 182 212 / var(--tw-text-opacity))\n}",
   map: null
 };
 const Nav = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let dark;
+  let $theme, $$unsubscribe_theme;
   let $page, $$unsubscribe_page;
+  $$unsubscribe_theme = subscribe(theme, (value) => $theme = value);
   $$unsubscribe_page = subscribe(page, (value) => $page = value);
-  const nav = [{ title: "Home", path: "/" }, { title: "About", path: "/about" }];
+  const nav = [
+    { title: "Home", path: "/" },
+    { title: "About", path: "/about" },
+    { title: "Sentimen", path: "/sentiment" }
+  ];
   $$result.css.add(css$3);
+  dark = $theme === "dark";
+  $$unsubscribe_theme();
   $$unsubscribe_page();
-  return `<nav class="${"flex flex-row gap-2"}">${each(nav, (item) => {
-    return `<a${add_attribute("href", item.path, 0)} class="${["navi", $page.url.pathname === item.path ? "active" : ""].join(" ").trim()}">${escape(item.title)}
+  return `<nav class="${["flex flex-row gap-2 svelte-13yuztl", dark ? "dark" : ""].join(" ").trim()}">${each(nav, (item) => {
+    return `<a${add_attribute("href", item.path, 0)} class="${["navi svelte-13yuztl", $page.url.pathname === item.path ? "active" : ""].join(" ").trim()}">${escape(item.title)}
 		</a>`;
   })}
 </nav>`;
@@ -73,21 +82,30 @@ const Navbar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 	<div class="${"items-end flex align-middle gap-1"}">${validate_component(ThemeSwitcher, "ThemeSwitcher").$$render($$result, {}, {}, {})}</div>
 </div>`;
 });
+const Footer = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<div class="${"fixed w-screen text-center h-12 backdrop-blur-2xl bottom-0 z-50 border-t"}">\xA9 2021 by dianghazy@gmail.com
+</div>`;
+});
 const __layout_svelte_svelte_type_style_lang = "";
 const css = {
-  code: ".footer{border-top-width:1px;--tw-bg-opacity:0.05;--tw-backdrop-blur:blur(40px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}*{transition:background-color 0.3s;transition:color 0.3s}body{background-image:linear-gradient(to top right, var(--tw-gradient-stops));--tw-gradient-from:#d8dee9;--tw-gradient-to:rgb(216 222 233 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to);--tw-gradient-to:rgb(229 233 240 / 0);--tw-gradient-stops:var(--tw-gradient-from), #e5e9f0, var(--tw-gradient-to);--tw-gradient-to:#eceff4;--tw-text-opacity:1;color:rgb(13 17 23 / var(--tw-text-opacity))}body.dark{background-image:linear-gradient(to top right, var(--tw-gradient-stops));--tw-gradient-from:#2e3440;--tw-gradient-to:rgb(46 52 64 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to);--tw-gradient-to:rgb(67 76 94 / 0);--tw-gradient-stops:var(--tw-gradient-from), #434c5e, var(--tw-gradient-to);--tw-gradient-to:#4c566a;--tw-text-opacity:1;color:rgb(201 209 217 / var(--tw-text-opacity))}",
+  code: "body.dark{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity));--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity));transition:color 0.5s;transition:background-color 0.5s\n}",
   map: null
 };
 const _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let dark;
+  let $theme, $$unsubscribe_theme;
   let $$unsubscribe_logs;
+  $$unsubscribe_theme = subscribe(theme, (value) => $theme = value);
   $$unsubscribe_logs = subscribe(logs, (value) => value);
   $$result.css.add(css);
+  dark = $theme === "dark";
+  $$unsubscribe_theme();
   $$unsubscribe_logs();
-  return `${validate_component(Navbar, "Navbar").$$render($$result, {}, {}, {})}
+  return `<div class="${["w-screen", dark ? "dark" : ""].join(" ").trim()}">${validate_component(Navbar, "Navbar").$$render($$result, {}, {}, {})}
 
-<div class="${"relative flex h-screen w-screen flex-col items-center overflow-scroll py-5"}"><div class="${"text-center"}">${slots.default ? slots.default({}) : ``}</div></div>
+	<div class="${"flex mt-5 justify-center w-screen h-screen"}"><div class="${"lg:min-w-[50vw] min-w-[90vw] p-5"}">${slots.default ? slots.default({}) : ``}</div></div>
 
-<div class="${"footer text-center pb-5 shadow-lg"}"><p>\xA92022 by dianghazy@gmail.com</p>
+	${validate_component(Footer, "Footer").$$render($$result, {}, {}, {})}
 </div>`;
 });
 export {
