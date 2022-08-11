@@ -25,13 +25,13 @@
 	}
 </script>
 
-<div class="container min-w-[30em] min-h-[20rem] w-full">
+<div>
 	<form on:submit|preventDefault={handleSubmit} method="post" class="flex flex-col">
 		{#if wrg}
 			<div class="warning">{wrg}</div>
 		{/if}
 
-		<textarea name="data" id="data" cols="30" rows="10" bind:value={artikel} />
+		<textarea placeholder="Input kalimat yang ingin dianalisis" rows="10" bind:value={artikel} />
 		<div class="text-end">
 			<button class="submit" type="submit">Submit</button>
 		</div>
@@ -40,11 +40,12 @@
 
 <style lang="postcss" global>
 	textarea {
+		@apply placeholder:text-lg placeholder:text-slate-300;
 		@apply resize-none shadow-lg;
 		@apply border rounded-md p-2;
 		@apply border-slate-600 dark:border-slate-50;
-		@apply bg-gray-50 text-gray-500;
-		@apply dark:bg-gray-500 dark:text-gray-100;
+		@apply bg-slate-100 text-slate-500;
+		@apply dark:bg-slate-500 dark:text-slate-100;
 	}
 	.warning {
 		@apply mb-2 p-2 rounded-md border-2 shadow-lg font-bold uppercase;

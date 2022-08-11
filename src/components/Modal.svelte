@@ -10,11 +10,11 @@
 			class="inside relative 
             overflow-scroll rounded-lg shadow-lg 
             p-10 w-[40em] h-[31em] gap-2 
-            bg-gray-50 dark:bg-gray-600"
+            bg-slate-50 dark:bg-slate-600"
 		>
-			<article class="prose prose-slate dark:text-gray-100">
-				<h1 class="dark:text-gray-100">Cara Membaca Hasil Prediksi.</h1>
-				<p class="lead dark:text-gray-100">
+			<article class="prose prose-slate dark:text-slate-100">
+				<h1 class="dark:text-slate-100">Cara Membaca Hasil Prediksi.</h1>
+				<p class="lead dark:text-slate-100">
 					Jika nilai Skor lebih rendah dari '0' maka di-labelkan sebagai kata negatif. Perlu
 					di-ingat nilai prior (nilai prediksi
 					<i>default</i>) adalah:
@@ -24,19 +24,19 @@
 				</p>
 				<hr />
 				<p>
-					Hasil analisis kata pada kolom <strong class="dark:text-gray-100">Detail</strong> dapat di-klik,
+					Hasil analisis kata pada kolom <strong class="dark:text-slate-100">Detail</strong> dapat di-klik,
 					untuk menampilkan nilai-nilai:
 				</p>
 				<ul class="list-disc">
 					<li>
-						<strong class="dark:text-gray-100">Skor</strong> adalah nilai hasil prediksi.
+						<strong class="dark:text-slate-100">Skor</strong> adalah nilai hasil prediksi.
 					</li>
 					<li>
-						<strong class="dark:text-gray-100">Freq</strong> adalah jumlah kata yang dalam kalimat.
+						<strong class="dark:text-slate-100">Freq</strong> adalah jumlah kata yang dalam kalimat.
 					</li>
 					<li>
-						<strong class="dark:text-gray-100">Likelihood</strong> yaitu nilai sentimen setiap kata dalam
-						model.
+						<strong class="dark:text-slate-100">Likelihood</strong> yaitu nilai sentimen setiap kata
+						dalam model.
 					</li>
 				</ul>
 				<hr />
@@ -68,7 +68,7 @@
 		@apply dark:text-cyan-600 bg-cyan-200;
 	}
 	th {
-		@apply text-gray-100;
+		@apply text-slate-100;
 	}
 	p a {
 		@apply dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300;

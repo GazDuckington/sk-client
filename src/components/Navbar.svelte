@@ -13,6 +13,6 @@
 <style lang="postcss" global>
 	.nav {
 		@apply sticky top-0 z-50;
-		@apply border-b backdrop-blur-2xl;
+		@apply border-b backdrop-blur-2xl shadow-md;
 	}
 </style>

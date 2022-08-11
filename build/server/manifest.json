@@ -19,8 +19,7 @@
       "_stores-c1116e89.js"
     ],
     "css": [
-      "_app/immutable/assets/__layout-02989a51.css",
-      "_app/immutable/assets/app-1da5e605.css"
+      "_app/immutable/assets/__layout-f6bc2616.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
@@ -36,11 +35,7 @@
     "src": "src/routes/about/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-5eb23c43.js",
-      "_stores-c1116e89.js"
-    ],
-    "css": [
-      "_app/immutable/assets/index-bbc68314.css"
+      "_index-5eb23c43.js"
     ]
   },
   "src/routes/index.svelte": {
@@ -52,8 +47,19 @@
       "_stores-c1116e89.js"
     ],
     "css": [
-      "_app/immutable/assets/index-1ec27c08.css",
-      "_app/immutable/assets/app-1da5e605.css"
+      "_app/immutable/assets/index-4a3460bc.css"
+    ]
+  },
+  "src/routes/sentiment/index.svelte": {
+    "file": "entries/pages/sentiment/index.svelte.js",
+    "src": "src/routes/sentiment/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-5eb23c43.js",
+      "_stores-c1116e89.js"
+    ],
+    "css": [
+      "_app/immutable/assets/index-49dcf39a.css"
     ]
   },
   "_index-5eb23c43.js": {

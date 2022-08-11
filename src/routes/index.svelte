@@ -4,14 +4,12 @@
 	import RawHasil from '$elements/RawHasil.svelte';
 	import Spinner from '$elements/Spinner.svelte';
 	import { postFetcher } from '$lib/fetcher';
-	import '../app.css';
 
 	const baseUrl = 'https://gzback.herokuapp.com/api/';
-	// let testPost = postFetcher(baseUrl + 'predict/', 'produk jelek jelek tapi murah. pegawai ramah.');
 
 	let load = false;
+	let raw = false;
 	let promise: Promise<any>;
-	let result: Promise<any>;
 
 	function handleSubmit(e: { detail: any }) {
 		const url = baseUrl + 'predict/';
@@ -26,24 +24,31 @@
 <svelte:head>
 	<title>home</title>
 </svelte:head>
-<p class="lead prose text-left">Input kalimat:</p>
-<InputData on:submit={handleSubmit} />
-{#if !promise}
+
+<!-- !! start of content -->
+{#if !load}
+	<InputData on:submit={handleSubmit} />
+{:else if !promise}
 	<div />
 {:else}
-	{#await promise}
-		<Spinner />
-	{:then result}
-		<div class="">
-			<p class="lead prose text-left mb-1">Hasil analisis:</p>
-			<TabelPred {promise} />
-			<RawHasil {result} />
-		</div>
-	{/await}
+	<div>
+		{#await promise}
+			<Spinner />
+		{:then result}
+			{#if raw}
+				<button on:click={() => (raw = !raw)}>table</button>
+				<RawHasil {result} />
+			{:else}
+				<button on:click={() => (raw = !raw)}>json</button>
+				<TabelPred {promise} />
+			{/if}
+		{/await}
+	</div>
 {/if}
 
-<style lang="postcss" global>
+<style lang="postcss">
 	p {
-		@apply dark:text-gray-100;
+		@apply text-left;
+		@apply dark:text-slate-100;
 	}
 </style>
