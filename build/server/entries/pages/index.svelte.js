@@ -19,9 +19,15 @@ const InputData = create_ssr_component(($$result, $$props, $$bindings, slots) =>
 });
 const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `${$$result.head += `${$$result.title = `<title>home</title>`, ""}`, ""}
+<<<<<<< HEAD
 
 
 ${`${validate_component(InputData, "InputData").$$render($$result, {}, {}, {})}`}`;
+=======
+<p class="${"lead prose text-left"}">Input kalimat:</p>
+${validate_component(InputData, "InputData").$$render($$result, {}, {}, {})}
+${`<div></div>`}`;
+>>>>>>> d838f1c (mobile support)
 });
 export {
   Routes as default
