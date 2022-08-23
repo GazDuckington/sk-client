@@ -36,6 +36,7 @@
 			{#await promise}
 				<Spinner />
 			{:then result}
+				<button on:click|preventDefault={() => (load = !load)}>input lagi</button>
 				{#if raw}
 					<button on:click={() => (raw = !raw)}>table</button>
 					<RawHasil {result} />
