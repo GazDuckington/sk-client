@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+          "name": "run dev mode",
+          "type": "command",
+          "program": "pnpm",
+          "args": ["dev","--open"],
+        }
+    ]
+}
